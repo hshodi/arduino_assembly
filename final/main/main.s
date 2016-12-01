@@ -3,7 +3,7 @@
                     
 setup:
               .EQU DDRB, 0X04
-              .EQU PORTB, 0X05
+              .EQU PORTB, 0X03
               sbi DDRB, 5
               sbi DDRB, 4
               
