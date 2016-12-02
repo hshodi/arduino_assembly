@@ -1,30 +1,21 @@
-                    .global setup
-                    .global loop
-                    
+              .global setup
+              .global loop
+              
+              
 setup:
-              .EQU DDRB, 0X04
-              .EQU PORTB, 0X03
-              sbi DDRB, 5
-              sbi DDRB, 4
+              .EQU DDRB, 0x04
+              .EQU PORTB, 0x03
+              SBI DDRB, 5
+              SBI DDRB, 4
+              SBI DDRB, 3
               
-r24_init:
-              ldi r24, 255
-              
-
 loop:
-
-              sbi PORTB, 5
-              cbi PORTB, 5
+              SBI PORTB, 5
+              SLEEP
+              CBI PORTB, 5
               SBI PORTB, 4
-              RCALL r24_init
-              dec r24
-              cpi r24, 0
-              
-              
-              
-turnoff:
-              cbi PORTB, 5
-              ldi r23, 255
-              dec r23
-              ret
-              
+              SLEEP
+              CBI PORTB, 4
+              SBI PORTB, 3
+              SLEEP
+              CBI PORTB, 3
